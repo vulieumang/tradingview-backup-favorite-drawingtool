@@ -1,46 +1,50 @@
-# TradingView Favorites Backup & Restore
+# TradingView Ultimate Backup & Restore Tool
 
-A simple set of JavaScript utilities to backup and restore your TradingView favorite drawing tools, timeframes, and indicators locally.
+A comprehensive JavaScript utility to backup and restore **all** TradingView settings, including local favorites (drawing tools, timeframes, indicators, recent symbols) and cloud-synced **Drawing Tool Templates & Themes**.
 
-## Features
+> Combined and upgraded from local TVSettings backup & [victornpb/tradingview-backup](https://github.com/victornpb/tradingview-backup).
 
-- **Local Backup**: Export your TradingView settings to a JSON file.
-- **Easy Restore**: Import your settings back by simply selecting the JSON file.
-- **No Account Required**: Works for both signed-in and guest users (though guest settings are usually lost anyway).
-- **Comprehensive**: Backs up favorite drawing tools, quick intervals, recent symbols, and favorite indicators.
+---
 
-## How to Use
+## 🌟 Key Features
 
-### 1. Backup Your Settings
+1. **⚡ Quick Favorites Backup & Restore**: Backup local favorites, timeframes (`IntervalWidget.quicks`), recent symbols, and indicator favorites instantly via `TVSettings`.
+2. **☁️ Cloud Drawing Templates & Themes**: Fetch, export, and restore custom drawing tool templates (Fib, Trendline, Gann, Risk/Reward, Text, Shapes, etc.) and Chart Color Themes via TradingView API endpoints.
+3. **🎛️ Interactive GUI & Floating Button**:
+   - Floating Action Button `🛠️` on the bottom-right corner to open/close the panel anytime.
+   - Individual item selection list with "Select All" / "Unselect All".
+   - Progress bar & live status updates during cloud fetching/restoring.
+4. **📂 Smart File Compatibility**: Supports importing:
+   - Full Ultimate Backup files (`.json`)
+   - Legacy `TVSettings` backup files
+   - `victornpb/tradingview-backup` files
 
-1. Open your **TradingView Chart**.
-2. Press `F12` to open the **Developer Tools** and navigate to the **Console** tab.
-3. Copy all code from [`backup_script.js`](./backup_script.js) and paste it into the console.
-4. Press **Enter**. A JSON file named `tradingview_favorites_backup_YYYY-MM-DD.json` will be downloaded to your computer.
+---
 
-### 2. Restore Your Settings
+## 🚀 How to Use
 
-1. Open the **TradingView Chart** where you want to restore settings.
-2. Open the **Console** (`F12`).
-3. Copy all code from [`restore_script.js`](./restore_script.js) and paste it into the console.
-4. Press **Enter**. A file picker window will appear.
-5. Select your previously saved JSON backup file.
-6. A confirmation dialog will appear; click **OK** to refresh the page and apply the changes.
+1. Open any **TradingView Chart** page.
+2. Press `F12` (or `Cmd+Option+I` on Mac) to open **Developer Tools** and switch to the **Console** tab.
+3. Copy all code from [`script.js`](./script.js) and paste it into the console.
+4. Press **Enter**.
 
-## Data Saved
+### Panel Controls:
+- **⚡ Quick Favorites Backup**: Instantly download local favorites & settings.
+- **☁️ Fetch Cloud Templates & Themes**: Fetch all your saved drawing templates & color themes from TradingView servers.
+- **📁 Export Full Backup JSON**: Export selected items into a single backup file.
+- **📂 Load Backup File**: Import a `.json` backup file from your device.
+- **🚀 Restore Selected Items**: Apply all selected settings, themes, and drawing templates back to TradingView.
 
-The tool exports the following keys from `TVSettings`:
-- `chart.favoriteDrawings`: Favorite drawing tools.
-- `IntervalWidget.quicks`: Favorite timeframes.
-- `symbollist.recents`: Recently viewed symbols.
-- `chart.favoriteIndicators`: Favorite indicators.
+---
 
-## Disclaimer
+## 📁 Project Structure
 
-TradingView typically syncs these settings to your account in the cloud. Using this tool is useful for:
-- Moving settings between different accounts.
-- Keeping a local history of your favorite tools.
-- Restoring settings if they get accidentally reset.
+- [`script.js`](./script.js): Combined Ultimate Backup & Restore Tool (Recommended).
+- [`backup_script.js`](./backup_script.js): Standalone local backup script.
+- [`restore_script.js`](./restore_script.js): Standalone local restore script.
 
-> [!IMPORTANT]
-> Always refresh the page after restoring to ensure the UI updates correctly.
+---
+
+## ⚠️ Important Note
+
+Always refresh the TradingView chart page after restoring to ensure all settings, themes, and templates are properly loaded by the interface!
